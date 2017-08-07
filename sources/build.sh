@@ -65,8 +65,8 @@ function install_rsync() {
 }
 
 function install_prereqs() {
-  git version || install_git
-  rsync -h >/dev/null 2>&1 || install_rsync
+  git version || { echo "git required but it's not installed.  Aborting." >&2; exit 1; }
+  rsync -h >/dev/null 2>&1 || { echo "rsync required but it's not installed.  Aborting." >&2; exit 1; }
 
   # Use -v instead of -h to test npm installation, since -h returns non-zero
   npm -v >/dev/null 2>&1 || install_node

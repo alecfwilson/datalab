@@ -47,8 +47,9 @@ fi
 
 function install_rsync() {
   echo "Installing rsync"
-  apt-get update -y -qq
-  apt-get install -y -qq rsync
+  pacman -S rsync
+  #apt-get update -y -qq
+  #apt-get install -y -qq rsync
 }
 
 # Copy build outputs as a dependency of the Dockerfile
